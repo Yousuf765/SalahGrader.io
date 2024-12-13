@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SalahGrader.io</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>SalahGrader.io</h1>
+    <p>Track your Salah performance and improve daily!</p>
+
+    <div class="instructions">
+      <h3>How to Grade Yourself:</h3>
+      <ul>
+        <li>0-15 mins = 5 points</li>
+        <li>16-20 mins = 4 points</li>
+        <li>21-30 mins = 3 points</li>
+        <li>31-45 mins = 2 points</li>
+        <li>46-60 mins = 1 point</li>
+        <li>1+ hour = 0 points</li>
+        <li>Praying in masjid = 7 points</li>
+      </ul>
+      <p>
+        <strong>Khusho:</strong> 4 point scale (1 point each for standing, rukoo, sujood, sitting).<br>
+        <strong>Sunnah:</strong> Check if prayed for 1 point, leave unchecked for 0 points.<br>
+        Max points per day: <strong>60</strong>.
+      </p>
+    </div>
+
+    <form id="prayerForm">
+      <table>
+        <thead>
+          <tr>
+            <th>Salah</th>
+            <th>Time from Adhan (0-7 points)</th>
+            <th>Khusho (1-4 points)</th>
+            <th>Sunnah (Check for 1 point)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fajr</td>
+            <td><input type="number" id="fajrTime" min="0" max="7" required></td>
+            <td><input type="number" id="fajrKhusho" min="0" max="4" required></td>
+            <td><input type="checkbox" id="fajrSunnah"></td>
+          </tr>
+          <tr>
+            <td>Dhuhr</td>
+            <td><input type="number" id="dhuhrTime" min="0" max="7" required></td>
+            <td><input type="number" id="dhuhrKhusho" min="0" max="4" required></td>
+            <td><input type="checkbox" id="dhuhrSunnah"></td>
+          </tr>
+          <tr>
+            <td>Asr</td>
+            <td><input type="number" id="asrTime" min="0" max="7" required></td>
+            <td><input type="number" id="asrKhusho" min="0" max="4" required></td>
+            <td><input type="checkbox" id="asrSunnah"></td>
+          </tr>
+          <tr>
+            <td>Maghrib</td>
+            <td><input type="number" id="maghribTime" min="0" max="7" required></td>
+            <td><input type="number" id="maghribKhusho" min="0" max="4" required></td>
+            <td><input type="checkbox" id="maghribSunnah"></td>
+          </tr>
+          <tr>
+            <td>Isha</td>
+            <td><input type="number" id="ishaTime" min="0" max="7" required></td>
+            <td><input type="number" id="ishaKhusho" min="0" max="4" required></td>
+            <td><input type="checkbox" id="ishaSunnah"></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="submit">Save and Update Points</button>
+    </form>
+
+    <div id="result"></div>
+
+    <div class="data-buttons">
+      <button id="clearDailyData">Clear Today's Data</button>
+      <button id="clearWeeklyData">Clear Weekly Data</button>
+    </div>
+
+    <canvas id="weeklyChart" width="400" height="200"></canvas>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+
